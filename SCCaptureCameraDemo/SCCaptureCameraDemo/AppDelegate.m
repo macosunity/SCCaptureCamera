@@ -22,7 +22,9 @@
     } else {
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
     }
-    self.window.rootViewController = self.viewController;
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
 #if TARGET_IPHONE_SIMULATOR

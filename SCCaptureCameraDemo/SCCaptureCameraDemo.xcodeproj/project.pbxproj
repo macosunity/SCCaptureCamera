@@ -51,6 +51,8 @@
 		E1F1A70E188A773400158677 /* SCCaptureSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1A56F188A772D00158677 /* SCCaptureSessionManager.m */; };
 		E1F1A70F188A773400158677 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1A571188A772D00158677 /* SCNavigationController.m */; };
 		E1F1A710188A773400158677 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F1A573188A772D00158677 /* UIImage+Resize.m */; };
+		EF98CE3D1D2CAAFB0006287D /* SCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98CE3A1D2CAAFB0006287D /* SCImagePickerController.m */; };
+		EF98CE3E1D2CAAFB0006287D /* SCImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF98CE3C1D2CAAFB0006287D /* SCImagePickerManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +127,10 @@
 		E1F1A573188A772D00158677 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		E1F1A809188A994300158677 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E1F1A80B188A997A00158677 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		EF98CE391D2CAAFB0006287D /* SCImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCImagePickerController.h; sourceTree = "<group>"; };
+		EF98CE3A1D2CAAFB0006287D /* SCImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImagePickerController.m; sourceTree = "<group>"; };
+		EF98CE3B1D2CAAFB0006287D /* SCImagePickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCImagePickerManager.h; sourceTree = "<group>"; };
+		EF98CE3C1D2CAAFB0006287D /* SCImagePickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImagePickerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +300,10 @@
 				E1F1A56D188A772D00158677 /* SCCaptureCameraController.m */,
 				E1F1A56E188A772D00158677 /* SCCaptureSessionManager.h */,
 				E1F1A56F188A772D00158677 /* SCCaptureSessionManager.m */,
+				EF98CE391D2CAAFB0006287D /* SCImagePickerController.h */,
+				EF98CE3A1D2CAAFB0006287D /* SCImagePickerController.m */,
+				EF98CE3B1D2CAAFB0006287D /* SCImagePickerManager.h */,
+				EF98CE3C1D2CAAFB0006287D /* SCImagePickerManager.m */,
 				E1F1A572188A772D00158677 /* UIImage+Resize.h */,
 				E1F1A573188A772D00158677 /* UIImage+Resize.m */,
 				E157BB7018935CD300D80041 /* SCSlider.h */,
@@ -354,7 +364,7 @@
 		E14F6001188A2C8400FE3CCA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Aevitx;
 			};
 			buildConfigurationList = E14F6004188A2C8400FE3CCA /* Build configuration list for PBXProject "SCCaptureCameraDemo" */;
@@ -409,6 +419,8 @@
 			files = (
 				E14F6019188A2C8400FE3CCA /* main.m in Sources */,
 				E14F601D188A2C8400FE3CCA /* AppDelegate.m in Sources */,
+				EF98CE3D1D2CAAFB0006287D /* SCImagePickerController.m in Sources */,
+				EF98CE3E1D2CAAFB0006287D /* SCImagePickerManager.m in Sources */,
 				E14F6026188A2C8400FE3CCA /* ViewController.m in Sources */,
 				E1F1A6EF188A773400158677 /* DCCrossHairView.m in Sources */,
 				E1F1A6F0188A773400158677 /* DCFrameView.m in Sources */,
@@ -472,6 +484,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -527,6 +540,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tk.aevit.camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -544,6 +558,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = tk.aevit.camera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

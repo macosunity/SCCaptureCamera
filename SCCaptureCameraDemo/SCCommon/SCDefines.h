@@ -18,6 +18,18 @@
  *
  */
 
+//frame and size
+#define SC_APP_FRAME        [[UIScreen mainScreen] bounds]
+#define SC_APP_SIZE         [[UIScreen mainScreen] bounds].size
+
+//height
+#define CAMERA_TOPVIEW_HEIGHT   44  //title
+#define CAMERA_MENU_VIEW_HEIGH  44  //menu
+
+//相机拍照视图高度和iPhone高度的比例
+#define CAMERA_PREVIEW_LAYER_HEIGHT_SCALE   0.8
+#define CAMERA_CONTENT_HEIGHT               (SC_APP_SIZE.height * CAMERA_PREVIEW_LAYER_HEIGHT_SCALE)
+
 
 // Debug Logging
 #if 1 // Set to 1 to enable debug logging
@@ -47,13 +59,6 @@
 
 //color
 #define rgba_SC(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-
-//frame and size
-#define SC_DEVICE_BOUNDS    [[UIScreen mainScreen] bounds]
-#define SC_DEVICE_SIZE      [[UIScreen mainScreen] bounds].size
-
-#define SC_APP_FRAME        [[UIScreen mainScreen] applicationFrame]
-#define SC_APP_SIZE         [[UIScreen mainScreen] applicationFrame].size
 
 #define SELF_CON_FRAME      self.view.frame
 #define SELF_CON_SIZE       self.view.frame.size

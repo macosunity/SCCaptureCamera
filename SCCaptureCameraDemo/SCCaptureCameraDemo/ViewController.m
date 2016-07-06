@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #import "PostViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<SCNavigationControllerDelegate>
+
+//for UIImagePickerController use
+@property (nonatomic,strong) SCImagePickerManager *manager;
 
 @end
 
@@ -18,64 +21,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(0, 0, 80, 40);
-    btn.center = self.view.center;
-    [btn setTitle:@"show" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(btnPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
     
-    [self configureNotification:YES];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)dealloc {
-    [self configureNotification:NO];
-}
-
-- (void)configureNotification:(BOOL)toAdd {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotificationTakePicture object:nil];
-    if (toAdd) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callbackNotificationForFilter:) name:kNotificationTakePicture object:nil];
-    }
-}
-
-- (void)callbackNotificationForFilter:(NSNotification*)noti {
-    UIViewController *cameraCon = noti.object;
-    if (!cameraCon) {
-        return;
-    }
-    UIImage *finalImage = [noti.userInfo objectForKey:kImage];
-    if (!finalImage) {
-        return;
-    }
-    PostViewController *con = [[PostViewController alloc] init];
-    con.postImage = finalImage;
+    UIButton *showCameraBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    showCameraBtn.frame = CGRectMake(0, 0, 200, 40);
+    showCameraBtn.center = CGPointMake(self.view.center.x, self.view.center.y-40);
+    [showCameraBtn setTitle:@"show camera" forState:UIControlStateNormal];
+    [showCameraBtn addTarget:self action:@selector(showCameraBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:showCameraBtn];
     
-    if (cameraCon.navigationController) {
-        [cameraCon.navigationController pushViewController:con animated:YES];
-    } else {
-        [cameraCon presentModalViewController:con animated:YES];
-    }
+    UIButton *showAlbumBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    showAlbumBtn.frame = CGRectMake(0, 0, 200, 40);
+    showAlbumBtn.center = CGPointMake(self.view.center.x, self.view.center.y+40);
+    [showAlbumBtn setTitle:@"show photo library" forState:UIControlStateNormal];
+    [showAlbumBtn addTarget:self action:@selector(showAlbumBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:showAlbumBtn];
 }
 
-- (void)btnPressed:(id)sender {
+- (void)showCameraBtnPressed:(id)sender {
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
     [nav showCameraWithParentController:self];
 }
 
-#pragma mark - SCNavigationController delegate
-- (void)didTakePicture:(SCNavigationController *)navigationController image:(UIImage *)image {
+- (void)showAlbumBtnPressed:(id)sender {
+    SCNavigationController *nav = [[SCNavigationController alloc] init];
+    nav.scNaigationDelegate = self;
+    self.manager = [[SCImagePickerManager alloc] init];
+    [nav showAlbumWithParentController:self];
+}
+
+#pragma mark - SCNavigationControllerDelegate
+- (void)didTakePictureWithImage:(UIImage *)image {
+    
     PostViewController *con = [[PostViewController alloc] init];
     con.postImage = image;
-    [navigationController pushViewController:con animated:YES];
+    [self.navigationController pushViewController:con animated:YES];
 }
 
 @end
