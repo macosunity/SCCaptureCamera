@@ -13,8 +13,6 @@ typedef void(^SCImageDidFinishPickingMediaWithInfoBlock)(UIImage *pickedImage);
 
 @interface SCImagePickerManager : NSObject<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-- (id)init;
-
 @property (nonatomic,copy) SCImageDidFinishPickingImageBlock finishPickImageBlock;
 @property (nonatomic,copy) SCImageDidFinishPickingMediaWithInfoBlock finishPickImageMediaBlock;
 
