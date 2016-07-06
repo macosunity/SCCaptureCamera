@@ -29,7 +29,6 @@
 		E14F6096188A2ED000FE3CCA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F608D188A2D4F00FE3CCA /* QuartzCore.framework */; };
 		E152FC63188B78C600BE1AE7 /* touch_focus_x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E152FC61188B78C600BE1AE7 /* touch_focus_x@2x.png */; };
 		E152FC64188B78C600BE1AE7 /* touch_focus_x.png in Resources */ = {isa = PBXBuildFile; fileRef = E152FC62188B78C600BE1AE7 /* touch_focus_x.png */; };
-		E157BB7218935CD400D80041 /* SCSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E157BB7118935CD300D80041 /* SCSlider.m */; };
 		E157BB7518935CF600D80041 /* SCCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = E157BB7418935CF600D80041 /* SCCommon.m */; };
 		E157BB82189366CF00D80041 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E157BB7F189366CF00D80041 /* SVProgressHUD.bundle */; };
 		E157BB83189366CF00D80041 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E157BB81189366CF00D80041 /* SVProgressHUD.m */; };
@@ -86,8 +85,6 @@
 		E14F6091188A2D6000FE3CCA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		E152FC61188B78C600BE1AE7 /* touch_focus_x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "touch_focus_x@2x.png"; sourceTree = "<group>"; };
 		E152FC62188B78C600BE1AE7 /* touch_focus_x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touch_focus_x.png; sourceTree = "<group>"; };
-		E157BB7018935CD300D80041 /* SCSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSlider.h; sourceTree = "<group>"; };
-		E157BB7118935CD300D80041 /* SCSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSlider.m; sourceTree = "<group>"; };
 		E157BB7318935CF600D80041 /* SCCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCCommon.h; path = SCCommon/SCCommon.h; sourceTree = SOURCE_ROOT; };
 		E157BB7418935CF600D80041 /* SCCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCCommon.m; path = SCCommon/SCCommon.m; sourceTree = SOURCE_ROOT; };
 		E157BB7718935D7400D80041 /* SCDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDefines.h; path = SCCommon/SCDefines.h; sourceTree = SOURCE_ROOT; };
@@ -306,8 +303,6 @@
 				EF98CE3C1D2CAAFB0006287D /* SCImagePickerManager.m */,
 				E1F1A572188A772D00158677 /* UIImage+Resize.h */,
 				E1F1A573188A772D00158677 /* UIImage+Resize.m */,
-				E157BB7018935CD300D80041 /* SCSlider.h */,
-				E157BB7118935CD300D80041 /* SCSlider.m */,
 			);
 			path = SCCaptureCamera;
 			sourceTree = SOURCE_ROOT;
@@ -433,7 +428,6 @@
 				E1F1A70F188A773400158677 /* SCNavigationController.m in Sources */,
 				E1F1A710188A773400158677 /* UIImage+Resize.m in Sources */,
 				E14B95C6188E7CD200BE2690 /* PostViewController.m in Sources */,
-				E157BB7218935CD400D80041 /* SCSlider.m in Sources */,
 				E157BB7518935CF600D80041 /* SCCommon.m in Sources */,
 				E157BB83189366CF00D80041 /* SVProgressHUD.m in Sources */,
 				47EE0C4F1A16792800FAFE79 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,

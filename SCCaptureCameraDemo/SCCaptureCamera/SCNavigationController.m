@@ -16,17 +16,6 @@
 
 @implementation SCNavigationController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
-    if (self) {
-        // Custom initialization
-    }
-
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -71,9 +60,6 @@
     SCImagePickerManager *manager = [parentVC valueForKey:@"manager"];
     
     SCImagePickerController *picker = [[SCImagePickerController alloc] init];
-    if ([picker.navigationBar respondsToSelector:@selector(setTintColor:)]) {
-        [picker.navigationBar setTintColor:[UIColor whiteColor]];
-    }
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.allowsEditing = NO;
     picker.delegate = manager;

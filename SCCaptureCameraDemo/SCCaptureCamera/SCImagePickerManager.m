@@ -25,7 +25,6 @@
     __block SCImagePickerManager *blockSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-//        UIImage * neworiginalImage = [originalImage fixOrientation];
         
         if (blockSelf.finishPickImageMediaBlock) {
             blockSelf.finishPickImageMediaBlock(originalImage);
