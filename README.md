@@ -24,15 +24,26 @@ CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.f
 
 2、Import "SCNavigationController.h" and code like this:
 ```
+    //show camera
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
     [nav showCameraWithParentController:self];
+    
+    //show photo library
+    SCNavigationController *nav = [[SCNavigationController alloc] init];
+    nav.scNaigationDelegate = self;
+    // add property to Current ViewController:  @property (nonatomic,strong) SCImagePickerManager *manager;
+    self.manager = [[SCImagePickerManager alloc] init];
+    [nav showAlbumWithParentController:self];
 ```    
 3、After take a picture, you can call back with delegate or a notification.
 
 a. delegate:
 ```
-- (void)didTakePicture:(SCNavigationController *)navigationController image:(UIImage *)image
+#pragma mark - SCNavigationControllerDelegate
+- (void)didTakePictureWithImage:(UIImage *)image {
+    ...
+}
 ```
 b. notification:
 ```
