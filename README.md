@@ -38,18 +38,13 @@ CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.f
 ```    
 3、After take a picture, you can call back with delegate or a notification.
 
-a. delegate:
+4、 delegate:
 ```
 #pragma mark - SCNavigationControllerDelegate
 - (void)didTakePictureWithImage:(UIImage *)image {
     ...
 }
 ```
-b. notification:
-```
-add a notification whose name is kNotificationTakePicture (just search "kNotificationTakePicture" in my demo project)
-```
-
 
 
 Finally, set ```SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA``` which is in the file ```SCCaptureCameraController.m``` to ```0```, it is just a joke for the devices which cannot take a picture.
