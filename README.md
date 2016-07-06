@@ -24,21 +24,27 @@ CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.f
 
 2、Import "SCNavigationController.h" and code like this:
 ```
+    //show camera
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
     [nav showCameraWithParentController:self];
+    
+    //show photo library
+    SCNavigationController *nav = [[SCNavigationController alloc] init];
+    nav.scNaigationDelegate = self;
+    // add property to Current ViewController:  @property (nonatomic,strong) SCImagePickerManager *manager;
+    self.manager = [[SCImagePickerManager alloc] init];
+    [nav showAlbumWithParentController:self];
 ```    
 3、After take a picture, you can call back with delegate or a notification.
 
-a. delegate:
+4、 delegate:
 ```
-- (void)didTakePicture:(SCNavigationController *)navigationController image:(UIImage *)image
+#pragma mark - SCNavigationControllerDelegate
+- (void)didTakePictureWithImage:(UIImage *)image {
+    ...
+}
 ```
-b. notification:
-```
-add a notification whose name is kNotificationTakePicture (just search "kNotificationTakePicture" in my demo project)
-```
-
 
 
 Finally, set ```SWITCH_SHOW_DEFAULT_IMAGE_FOR_NONE_CAMERA``` which is in the file ```SCCaptureCameraController.m``` to ```0```, it is just a joke for the devices which cannot take a picture.
