@@ -5,14 +5,6 @@ A Custom Camera with AVCaptureSession to take a square picture. And the UI is pa
 
 It can work in iPad, too.
 
-ScreenShots：
-----------
-
-iPhone4:![image](https://github.com/xhzengAIB/SCCaptureCamera/raw/master/Screenshots/screenShot_iPhone4.png)          
-
-iPhone5:![image](https://github.com/xhzengAIB/SCCaptureCamera/raw/master/Screenshots/screenShot_iPhone5.png)
-
-
 Usage：
 ----------
 0、Import four frameworks: 
