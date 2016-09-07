@@ -9,7 +9,7 @@ Usage：
 ----------
 0、Import four frameworks: 
 ```
-CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.framework
+CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImageIO.framework
 ```
 
 1、Drag "SCCaptureCamera" and "SCCommon" to your project.
@@ -19,12 +19,12 @@ CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.f
     //show camera
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    [nav showCameraWithParentController:self];
+    [nav showCameraWithViewController:self];
     
     //show photo library
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    [nav showAlbumWithParentController:self];
+    [nav showAlbumWithViewController:self];
 ```    
 3、After take a picture, you can call back with delegate or a notification.
 
