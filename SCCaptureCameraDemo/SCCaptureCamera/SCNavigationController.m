@@ -7,6 +7,29 @@
 //
 
 #import "SCNavigationController.h"
+#import <objc/runtime.h>
+
+@interface UIViewController (ExampleCategoryWithProperty)
+
+//for UIImagePickerController use
+@property (nonatomic,strong) SCImagePickerManager *pickerManager;
+
+@end
+
+static char const *const PickerManagerTagKey;
+
+@implementation UIViewController (ExampleCategoryWithProperty)
+@dynamic pickerManager;
+
+- (id)pickerManager {
+    return objc_getAssociatedObject(self, PickerManagerTagKey);
+}
+
+- (void)setPickerManager:(SCImagePickerManager *)pickerManager {
+    objc_setAssociatedObject(self, PickerManagerTagKey, pickerManager, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 @interface SCNavigationController ()
 
@@ -57,20 +80,25 @@
 //从相册选择
 - (void)showAlbumWithParentController:(UIViewController *)parentVC
 {
-    SCImagePickerManager *manager = [parentVC valueForKey:@"manager"];
+    parentVC.pickerManager = [[SCImagePickerManager alloc] init];
+
+    SCImagePickerManager *pickerManager = parentVC.pickerManager;
     
     SCImagePickerController *picker = [[SCImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.allowsEditing = NO;
-    picker.delegate = manager;
+    picker.delegate = pickerManager;
     [parentVC presentViewController:picker animated:YES completion:nil];
     
-    manager.finishPickImageBlock = ^ {
+    pickerManager.finishPickImageBlock = ^ {
         NSLog(@"cancel");
+        if ([self.scNaigationDelegate respondsToSelector:@selector(willDismissNavigationController:)]) {
+            [self.scNaigationDelegate willDismissNavigationController:self];
+        }
     };
     
     __weak UIViewController *weakParentVC = parentVC;
-    manager.finishPickImageMediaBlock = ^(UIImage *pickedImage) {
+    pickerManager.finishPickImageMediaBlock = ^(UIImage *pickedImage) {
         NSLog(@"%@", pickedImage);
         
         if ([weakParentVC respondsToSelector:@selector(didTakePictureWithImage:)]) {

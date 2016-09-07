@@ -11,9 +11,6 @@
 
 @interface ViewController ()<SCNavigationControllerDelegate>
 
-//for UIImagePickerController use
-@property (nonatomic,strong) SCImagePickerManager *manager;
-
 @end
 
 @implementation ViewController
@@ -46,7 +43,6 @@
 - (void)showAlbumBtnPressed:(id)sender {
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    self.manager = [[SCImagePickerManager alloc] init];
     [nav showAlbumWithParentController:self];
 }
 

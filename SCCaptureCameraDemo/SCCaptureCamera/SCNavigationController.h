@@ -29,6 +29,8 @@
 
 @optional
 - (BOOL)willDismissNavigationController:(SCNavigationController *)navigatonController;
+
+@required
 - (void)didTakePictureWithImage:(UIImage *)image;
 
 @end
