@@ -37,13 +37,13 @@
 - (void)showCameraBtnPressed:(id)sender {
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    [nav showCameraWithParentController:self];
+    [nav showCameraWithViewController:self];
 }
 
 - (void)showAlbumBtnPressed:(id)sender {
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    [nav showAlbumWithParentController:self];
+    [nav showAlbumWithViewController:self];
 }
 
 #pragma mark - SCNavigationControllerDelegate

@@ -20,9 +20,9 @@
 @property (nonatomic, assign) id <SCNavigationControllerDelegate>    scNaigationDelegate;
 
 //拍照
-- (void)showCameraWithParentController:(UIViewController *)parentController;
+- (void)showCameraWithViewController:(UIViewController *)viewController;
 //从相册选择
-- (void)showAlbumWithParentController:(UIViewController *)parentController;
+- (void)showAlbumWithViewController:(UIViewController *)viewController;
 @end
 
 @protocol SCNavigationControllerDelegate <NSObject>

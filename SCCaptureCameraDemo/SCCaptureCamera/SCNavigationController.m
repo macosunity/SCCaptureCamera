@@ -68,27 +68,27 @@ static char const *const PickerManagerTagKey;
 
 #pragma mark - action(s)
 //拍照
-- (void)showCameraWithParentController:(UIViewController *)parentVC
+- (void)showCameraWithViewController:(UIViewController *)viewController
 {
     SCCaptureCameraController *con = [[SCCaptureCameraController alloc] init];
     con.albumName = self.customAlbumName;
     
     [self setViewControllers:[NSArray arrayWithObjects:con, nil]];
-    [parentVC presentViewController:self animated:YES completion:nil];
+    [viewController presentViewController:self animated:YES completion:nil];
 }
 
 //从相册选择
-- (void)showAlbumWithParentController:(UIViewController *)parentVC
+- (void)showAlbumWithViewController:(UIViewController *)viewController
 {
-    parentVC.pickerManager = [[SCImagePickerManager alloc] init];
+    viewController.pickerManager = [[SCImagePickerManager alloc] init];
 
-    SCImagePickerManager *pickerManager = parentVC.pickerManager;
+    SCImagePickerManager *pickerManager = viewController.pickerManager;
     
     SCImagePickerController *picker = [[SCImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.allowsEditing = NO;
     picker.delegate = pickerManager;
-    [parentVC presentViewController:picker animated:YES completion:nil];
+    [viewController presentViewController:picker animated:YES completion:nil];
     
     pickerManager.finishPickImageBlock = ^ {
         NSLog(@"cancel");
@@ -97,7 +97,7 @@ static char const *const PickerManagerTagKey;
         }
     };
     
-    __weak UIViewController *weakParentVC = parentVC;
+    __weak UIViewController *weakParentVC = viewController;
     pickerManager.finishPickImageMediaBlock = ^(UIImage *pickedImage) {
         NSLog(@"%@", pickedImage);
         
