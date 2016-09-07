@@ -9,7 +9,7 @@
 #import "SCNavigationController.h"
 #import <objc/runtime.h>
 
-@interface UIViewController (ExampleCategoryWithProperty)
+@interface UIViewController(PickerManager)
 
 //for UIImagePickerController use
 @property (nonatomic,strong) SCImagePickerManager *pickerManager;
@@ -18,7 +18,7 @@
 
 static char const *const PickerManagerTagKey;
 
-@implementation UIViewController (ExampleCategoryWithProperty)
+@implementation UIViewController(PickerManager)
 @dynamic pickerManager;
 
 - (id)pickerManager {
