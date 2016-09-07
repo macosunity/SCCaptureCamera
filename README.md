@@ -32,8 +32,6 @@ CoreMedia.framework、QuartzCore.framework、AVFoundation.framework、ImmageIO.f
     //show photo library
     SCNavigationController *nav = [[SCNavigationController alloc] init];
     nav.scNaigationDelegate = self;
-    // add property to Current ViewController:  @property (nonatomic,strong) SCImagePickerManager *manager;
-    self.manager = [[SCImagePickerManager alloc] init];
     [nav showAlbumWithParentController:self];
 ```    
 3、After take a picture, you can call back with delegate or a notification.
